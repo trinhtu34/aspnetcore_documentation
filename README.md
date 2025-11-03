@@ -98,9 +98,12 @@ or, if you use MSSQL on Docker
 }
 ```
 
-
 #### 🗄️ Database Connection Issues
 - ✅ Ensure SQL Server is running
 - ✅ Check connection string format
 - ✅ Verify database permissions
 - ✅ Try using SQL Server LocalDB
+
+#### Warning 
+
+Currently, I am using MSSQL on Docker
