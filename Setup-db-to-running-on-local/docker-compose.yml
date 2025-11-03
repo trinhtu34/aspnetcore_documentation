@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: mssql-local
+    ports:
+      - "${MSSQL_PORT:-1433}:1433"
+    environment:
+      - ACCEPT_EULA=${ACCEPT_EULA:-Y}
+      - SA_PASSWORD=${SA_PASSWORD:-Password123!}
+      - MSSQL_PID=${MSSQL_PID:-Express}
+    volumes:
+      - mssql_data:/var/opt/mssql
+
+  # Init container để chạy SQL script
+  mssql-init:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: mssql-init
+    depends_on:
+      - mssql
+    volumes:
+      - ./init-scripts:/scripts
+    environment:
+      - SA_PASSWORD=${SA_PASSWORD:-Password123!}
+    command: >
+      bash -c "
+        echo 'Waiting for SQL Server...'
+        sleep 30
+        echo 'Running init script...'
+        /opt/mssql-tools/bin/sqlcmd -S mssql -U sa -P $${SA_PASSWORD} -i /scripts/01-create-database.sql
+        echo 'Database initialized!'
+      "
+    restart: "no"
+
+volumes:
+  mssql_data:
