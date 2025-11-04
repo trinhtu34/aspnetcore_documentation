@@ -289,7 +289,7 @@ dotnet run
 
 ### Bước 3: Chạy Ứng Dụng
 
-#### Tùy Chọn A: Sử Dụng Visual Studio (Khuyến Nghị)
+#### Sử Dụng Visual Studio (Khuyến Nghị)
 
 1. 📂 Mở file `myproject.sln` trong Visual Studio
 2. 🎯 Đặt `myproject.Web.Mvc` làm startup project
