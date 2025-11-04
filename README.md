@@ -208,7 +208,7 @@ ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản th�
 - Hệ thống phân cấp đơn vị tổ chức
 - Quy trình làm việc phức tạp của người dùng
 
-#### 7. Khi Cần Ứng Dụng Di Động
+#### 7. Khi Cần Ứng Dụng Trên Thiết Bị Di Động
 
 - Yêu cầu cả web và mobile (iOS/Android)
 - Tiếp cận API-first
