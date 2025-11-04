@@ -2,7 +2,9 @@
 
 ## ASP.NET Core Zero là gì?
 
-ASP.NET Core Zero là một framework khởi điểm được xây dựng dựa trên nền tảng ASP.NET Core và ABP Framework (ASP.NET Boilerplate). Nó cung cấp một kiến trúc ứng dụng hoàn chỉnh với các tính năng cơ bản đã được tích hợp sẵn, giúp các nhà phát triển có thể bắt đầu dự án nhanh chóng mà không cần phải xây dựng lại các tính năng cơ bản từ đầu.
+ASP.NET Core Zero là một framework khởi điểm được xây dựng dựa trên nền tảng ASP.NET Core và ABP Framework (ASP.NET Boilerplate). Nó được sử dụng để cung cấp một kiến trúc ứng dụng hoàn chỉnh với các tính năng cơ bản đã được tích hợp sẵn, giúp các nhà phát triển có thể bắt đầu dự án nhanh chóng mà không cần phải xây dựng lại các tính năng cơ bản từ đầu.
+
+Một số use cases chính của ASP.NET Core Zero như để tạo ra các Project Management Tool như Jira, Asana. Hệ thống CRM. E-learning platform. Inventory Management System. Enterprise Internal Application. Healthcare Application. 
 
 ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản thương mại của ABP Framework, cung cấp các module và tính năng nâng cao hơn so với phiên bản miễn phí. Nó tuân theo các nguyên tắc thiết kế như Domain-Driven Design (DDD), Multi-tenancy, và các best practices trong phát triển phần mềm hiện đại.
 
@@ -173,7 +175,7 @@ ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản th�
 
 #### 1. Ứng Dụng SaaS (Multi-tenant)
 
-- Khi bạn xây dựng ứng dụng SaaS với nhiều khách hàng
+- Khi bạn xây dựng ứng dụng SaaS ( Software as a Services ) với nhiều khách hàng
 - Cần quản lý tenants với cô lập dữ liệu
 - Yêu cầu quản lý đăng ký và phiên bản
 
