@@ -161,12 +161,6 @@ ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản th�
 - Nhiều bảng mặc dù chưa sử dụng hết tính năng
 - Độ phức tạp trong các mối quan hệ database
 
-#### 7. Chi Phí Hiệu Năng
-
-- Nhiều lớp trừu tượng có thể ảnh hưởng hiệu năng
-- Cần tối ưu hóa cho ứng dụng lưu lượng cao
-- Dung lượng bộ nhớ lớn hơn các framework tối giản
-
 #### 8. Phụ Thuộc Nhà Cung Cấp
 
 - Phụ thuộc vào lộ trình phát triển của Volosoft
@@ -283,7 +277,7 @@ dotnet run
 - 🌱 Khởi tạo dữ liệu ban đầu (admin user, roles, permissions)
 - 🔧 Thiết lập cấu trúc multi-tenancy
 
-### Bước 3: Tải thư viện 
+### Bước 3: Tải thư viện
 
 - Để bản demo này có giao diện đẹp thì bạn cần cài thư viện như bootstrap và JQuery, đặt chúng nằm tại đường dẫn ```*.Web.Mvc/wwwroot/libs/```
 
