@@ -256,22 +256,6 @@ ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản th�
 - Xác thực cơ bản là đủ
 - Chức năng tối thiểu
 
-## 📚 Tài Nguyên Bổ Sung
-
-### Tài Liệu Chính Thức
-- [ASP.NET Zero Documentation](https://docs.aspnetzero.com/)
-- [ABP Framework Documentation](https://docs.abp.io/)
-
-### Cộng Đồng
-- [ASP.NET Zero Forum](https://support.aspnetzero.com/)
-- [GitHub Repository](https://github.com/aspnetzero)
-
-### Hỗ Trợ
-- Email: info@aspnetzero.com
-- Support Portal: https://support.aspnetzero.com/
-
----
-
 ## 🚀 Bắt Đầu Với Dự Án Mẫu
 
 ### Bước 1: Clone Repository
@@ -303,7 +287,7 @@ dotnet run
 
 - Để bản demo này có giao diện đẹp thì bạn cần cài thư viện như bootstrap và JQuery, đặt chúng nằm tại đường dẫn ```*.Web.Mvc/wwwroot/libs/```
 
-### Bước 4: Chạy Ứng Dụng
+### Bước 3: Chạy Ứng Dụng
 
 #### Sử Dụng Visual Studio (Khuyến Nghị)
 
@@ -311,7 +295,7 @@ dotnet run
 2. 🎯 Đặt `myproject.Web.Mvc` làm startup project
 3. ⚡ Nhấn `F5` hoặc click **Start Debugging**
 
-### Bước 5: Truy Cập Ứng Dụng
+### Bước 4: Truy Cập Ứng Dụng
 
 🌐 **Các URL Ứng Dụng:**
 - **Ứng dụng Web**: https://localhost:44311
@@ -390,6 +374,22 @@ Hoặc, nếu bạn sử dụng MSSQL trên Docker:
 
 Hiện tại, tôi đang sử dụng MSSQL trên Docker
 
+## 📚 Tài Nguyên Bổ Sung
 
-**Phiên bản tài liệu**: 1.2
-**Cập nhật lần cuối**: 04/11/2025
+### Tài Liệu Chính Thức
+- [ASP.NET Zero Documentation](https://docs.aspnetzero.com/)
+- [ABP Framework Documentation](https://docs.abp.io/)
+
+### Cộng Đồng
+- [ASP.NET Zero Forum](https://support.aspnetzero.com/)
+- [GitHub Repository](https://github.com/aspnetzero)
+
+### Hỗ Trợ
+- Email: info@aspnetzero.com
+- Support Portal: https://support.aspnetzero.com/
+
+---
+
+**Phiên bản tài liệu**: 1.0 
+
+**Cập nhật lần cuối**: 2024
