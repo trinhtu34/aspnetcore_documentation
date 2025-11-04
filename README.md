@@ -38,9 +38,9 @@ ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản th�
 
 - Tích hợp Hangfire để xử lý các tác vụ nền
 - Hỗ trợ Quartz.NET cho các công việc theo lịch trình
-- Thực thi công việc đáng tin cậy với cơ chế thử lại
+- Thực thi công việc đáng tin cậy với cơ chế retry
 
-### 6. Ghi Nhật Ký Kiểm Toán
+### 6. Ghi Nhật Ký Audit
 
 - Tự động ghi log các thao tác quan trọng
 - Theo dõi lịch sử thay đổi dữ liệu
@@ -64,7 +64,7 @@ ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản th�
 - Hệ thống thông báo tích hợp sẵn
 - Cập nhật dashboard theo thời gian thực
 
-### 10. Hỗ Trợ Di Động
+### 10. Hỗ Trợ Thiết Bị Di Động
 
 - Template Xamarin cho iOS và Android
 - Template React Native
@@ -117,7 +117,7 @@ ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản th�
 - Entity Framework Core với hỗ trợ migration
 - Tích hợp Dapper cho các truy vấn hiệu năng cao
 
-#### 6. Sẵn Sàng Cho Production
+#### 6. Sẵn Sàng Cho Việc Triển Khai Lên Production
 
 - Đã được kiểm thử kỹ lưỡng
 - Cơ sở hạ tầng logging và monitoring
@@ -137,7 +137,7 @@ ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản th�
 - Nhiều tính năng không cần thiết cho dự án nhỏ
 - Chi phí hiệu năng do các lớp trừu tượng
 
-#### 3. Đường Cong Học Tập Dốc
+#### 3. Phải Học Nhiều Công Nghệ
 
 - Cần thời gian để hiểu kiến trúc phức tạp
 - Nhiều khái niệm: DDD, Multi-tenancy, ABP Framework
@@ -190,7 +190,7 @@ ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản th�
 - Yêu cầu ghi nhật ký kiểm toán và tuân thủ
 - Đội ngũ lớn cần cấu trúc rõ ràng
 
-#### 3. Khi Có Ngân Sách và Thời Hạn Chặt Chẽ
+#### 3. Khi Có Ngân Sách Lớn Nhưng Thời Gian Phát Triển Ngắn
 
 - Có ngân sách cho bản quyền nhưng cần giảm thời gian phát triển
 - Deadline gấp, cần giải pháp sẵn sàng production nhanh chóng
@@ -242,7 +242,7 @@ ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản th�
 
 - Proof of concept
 - Dự án ngắn hạn (< 3 tháng)
-- Ứng dụng một lần
+- Ứng dụng dùng một lần, không tái sử dụng cho sau này
 
 #### 5. Khi Cần Kiểm Soát Hoàn Toàn
 
