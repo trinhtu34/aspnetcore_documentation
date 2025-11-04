@@ -1,340 +1,349 @@
-# ASP.NET Core Zero Documentation
+# Tài Liệu ASP.NET Core Zero
 
-## What is ASP.NET Core Zero
+## ASP.NET Core Zero là gì?
 
-ASP.NET Core Zero là một framework khởi điểm được xây dựng dựa trên nền tảng ASP.NET Core và ABP Framework ( ASP.NET Boilerplate ). Nó cung cấp một kiến trúc ứng dụng hoàn chỉnh voiw các tính năng cơ bản đã được tích hợp sẵn , giúp các nhà phát triển có thể bắt đầu dự án nhanh chóng mà không cần phải xây dựng lại các tính năng cơ bản từ đầu.
+ASP.NET Core Zero là một framework khởi điểm được xây dựng dựa trên nền tảng ASP.NET Core và ABP Framework (ASP.NET Boilerplate). Nó cung cấp một kiến trúc ứng dụng hoàn chỉnh với các tính năng cơ bản đã được tích hợp sẵn, giúp các nhà phát triển có thể bắt đầu dự án nhanh chóng mà không cần phải xây dựng lại các tính năng cơ bản từ đầu.
 
-ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản thương mại của ABP Framework, cung cấp các module và tinh năng nâng cao hơn so với phiên bản miễn phí. Nó tuân theo các nguyên tắc thiết kế như Domain-Driven Design (DDD), Multi-tenancy, và các best practices trong phát triển phần mềm hiện đại.
+ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản thương mại của ABP Framework, cung cấp các module và tính năng nâng cao hơn so với phiên bản miễn phí. Nó tuân theo các nguyên tắc thiết kế như Domain-Driven Design (DDD), Multi-tenancy, và các best practices trong phát triển phần mềm hiện đại.
 
-## Some Key Feature
+## Các Tính Năng Chính
 
-1. Multi-Tenancy (Đa người thuê)
+### 1. Đa Người Thuê (Multi-Tenancy)
 
-- Hỗ trợ kiến trúc SaaS ( Software as a Service )
+- Hỗ trợ kiến trúc SaaS (Software as a Service)
 - Có thể cấu hình database riêng cho mỗi tenant hoặc chia sẻ chung
 - Quản lý tenant động với các tính năng như subdomain routing
 
-2. Authentication and Authrization
+### 2. Xác Thực và Phân Quyền
 
-- Hệ thống xác thực đa dạng : JWT, Cookie-based, External providers (Google, Facebook, Microsoft)
+- Hệ thống xác thực đa dạng: JWT, Cookie-based, External providers (Google, Facebook, Microsoft)
 - Quản lý vai trò (Role) và quyền (Permission) linh hoạt
-- Hỗ trợ Two-Factor Authentication (2FA)
-- Identity Server Integration cho Single Sign-On (SSO)
+- Hỗ trợ xác thực hai yếu tố (Two-Factor Authentication - 2FA)
+- Tích hợp Identity Server cho đăng nhập một lần (Single Sign-On - SSO)
 
-3. Moduler Architecture
+### 3. Kiến Trúc Module
 
 - Cấu trúc module rõ ràng, dễ bảo trì và mở rộng
-- Phân tác rõ ràng giữa Core, Application, Web layers
+- Phân tách rõ ràng giữa các lớp Core, Application, Web
 - Dependency Injection được tích hợp sâu
 
-4. Pre-built UI
+### 4. Giao Diện Có Sẵn
 
 - Template sẵn có với Angular, React, hoặc MVC/Razor Pages
-- Responsive design với Bootstrap
-- Các trang quản trị cơ bản: User, Role, Tenant management
-- Localization (đa ngôn ngữ) được tích hợp sẵn
+- Thiết kế responsive với Bootstrap
+- Các trang quản trị cơ bản: Quản lý User, Role, Tenant
+- Đa ngôn ngữ (Localization) được tích hợp sẵn
 
-5. Background Jobs
+### 5. Tác Vụ Nền
 
-- Hangfire integration để xử lý các tác vụ nền
-- Quartz.NET hỗ trợ cho các scheduled jobs
-- Reliable job execution với retry mechanism
+- Tích hợp Hangfire để xử lý các tác vụ nền
+- Hỗ trợ Quartz.NET cho các công việc theo lịch trình
+- Thực thi công việc đáng tin cậy với cơ chế thử lại
 
-6. Audit Logging
+### 6. Ghi Nhật Ký Kiểm Toán
 
-- Tự động log các thao tác quan trọng
-- Theo dõi lịch sử thay đổi dữ liệu 
-- Lưu thông tin nguời dùng, thời gian, và các thay đổi chi tiết
+- Tự động ghi log các thao tác quan trọng
+- Theo dõi lịch sử thay đổi dữ liệu
+- Lưu thông tin người dùng, thời gian, và các thay đổi chi tiết
 
-7. Data filtering
+### 7. Lọc Dữ Liệu
 
-- Soft delete: xóa mềm dữ liệu, thay vì xóa vĩnh viễn
-- Multi-tenancy filter tự động
-- Custom filters có thể mở rộng
+- Xóa mềm (Soft delete): xóa dữ liệu logic thay vì xóa vĩnh viễn
+- Bộ lọc multi-tenancy tự động
+- Bộ lọc tùy chỉnh có thể mở rộng
 
-8. Rapid Applicaion Development tools
+### 8. Công Cụ Phát Triển Nhanh
 
-- Code generators để tạo CRUD operations nhanh chóng
+- Trình tạo code để tạo các thao tác CRUD nhanh chóng
 - ASP.NET Zero Power Tools
-- Entity scaffolding với UI
+- Entity scaffolding với giao diện người dùng
 
-9. Real-time Communication
+### 9. Giao Tiếp Thời Gian Thực
 
-- SignalR integration cho chat, notifications
-- Built-in notification system
-- Real-time dashboard updates
+- Tích hợp SignalR cho chat, thông báo
+- Hệ thống thông báo tích hợp sẵn
+- Cập nhật dashboard theo thời gian thực
 
-10. Mobile support
+### 10. Hỗ Trợ Di Động
 
-- Xamarin template cho IOS và Android
-- React Native template 
-- RESTful API sẵn có cho mobile apps
+- Template Xamarin cho iOS và Android
+- Template React Native
+- RESTful API sẵn có cho ứng dụng di động
 
-11. Testing Infrastructure
+### 11. Cơ Sở Hạ Tầng Kiểm Thử
 
-- Unit test project template
-- Integration test setup
-- Test data builders
+- Template dự án unit test
+- Thiết lập integration test
+- Trình tạo dữ liệu test
 
-12. Edition and Feature Management
+### 12. Quản Lý Phiên Bản và Tính Năng
 
 - Quản lý các gói tính năng (editions) cho SaaS
-- Feature toggle system
-- Subscription management 
+- Hệ thống bật/tắt tính năng (Feature toggle)
+- Quản lý đăng ký (Subscription management)
 
-## Positive and Negative
+## Ưu Điểm và Nhược Điểm
 
-### Positive
+### Ưu Điểm
 
-1. Tiết kiệm thời gian phát triển
+#### 1. Tiết Kiệm Thời Gian Phát Triển
 
 - Không cần xây dựng lại các tính năng cơ bản
-- Authentication và authorization đã được implement sẵn 
-- Giảm 40-60% thời gian phát triển phase đầu tiên của dự án
+- Xác thực và phân quyền đã được triển khai sẵn
+- Giảm 40-60% thời gian phát triển giai đoạn đầu tiên của dự án
 
-2. Best practices đucợ áp dụng sẵn
+#### 2. Best Practices Được Áp Dụng Sẵn
 
-- Domain-Driven Desing (DDD)
-- SOLID principles
+- Domain-Driven Design (DDD)
+- Nguyên tắc SOLID
 - Clean Architecture
 - Repository Pattern, Unit of Work
 
-3. Bảo mật tốt
+#### 3. Bảo Mật Tốt
 
-- Security được chú trọng tự đầu 
-- Protection against common vulnerabilities (CSRF, XSS, SQL Injection)
-- Regular security updates
+- Bảo mật được chú trọng từ đầu
+- Bảo vệ chống lại các lỗ hổng phổ biến (CSRF, XSS, SQL Injection)
+- Cập nhật bảo mật thường xuyên
 
-4. Scalability 
+#### 4. Khả Năng Mở Rộng
 
-- Kiến trúc phù hợp cho cả small và Large applications 
-- Hỗ trợ Microservice
-- Cloud-ready (Azure, AWS, GCP)
+- Kiến trúc phù hợp cho cả ứng dụng nhỏ và lớn
+- Hỗ trợ Microservices
+- Sẵn sàng cho Cloud (Azure, AWS, GCP)
 
-5. Database Flexibility 
+#### 5. Linh Hoạt Về Database
 
 - Hỗ trợ nhiều database: SQL Server, MySQL, PostgreSQL, Oracle
-- Entity framework core với migration support
-- Dapper integration cho high-performance queries
+- Entity Framework Core với hỗ trợ migration
+- Tích hợp Dapper cho các truy vấn hiệu năng cao
 
-6. Production-ready
+#### 6. Sẵn Sàng Cho Production
 
-- Đã được test kỹ lưỡng
-- Logging, monitoring infrastructure
-- Performance optimization
+- Đã được kiểm thử kỹ lưỡng
+- Cơ sở hạ tầng logging và monitoring
+- Tối ưu hóa hiệu năng
 
-### Negative
+### Nhược Điểm
 
-1. Chi Phí license
+#### 1. Chi Phí Bản Quyền
 
-- Không miễn phí ( giá từ 2,999 đô cho 3 developer và 1 sản phẩm)
-- Renewal fees hàng năm
+- Không miễn phí (giá từ $2,999 cho 3 developer và 1 sản phẩm)
+- Phí gia hạn hàng năm
 - Chi phí cao cho startup và dự án nhỏ
 
-2. Over-engineering cho dự án nhỏ
+#### 2. Quá Phức Tạp Cho Dự Án Nhỏ
 
-- Quá phức tạp nếu chỉ cần một CRUD đơn giản
-- nhiều features khong cần thiết cho small projects
-- Performance overhead do abstraction layers
+- Quá phức tạp nếu chỉ cần một ứng dụng CRUD đơn giản
+- Nhiều tính năng không cần thiết cho dự án nhỏ
+- Chi phí hiệu năng do các lớp trừu tượng
 
-3. Steep Learning Curve
+#### 3. Đường Cong Học Tập Dốc
 
 - Cần thời gian để hiểu kiến trúc phức tạp
-- Nhiều concepts: DDD, Multi-tenancy, ABP Framework
+- Nhiều khái niệm: DDD, Multi-tenancy, ABP Framework
 - Đòi hỏi kiến thức về nhiều công nghệ
 
-4. Tight Coupling với ABP Framework
+#### 4. Gắn Chặt Với ABP Framework
 
-- Phụ thuộc nhiều vào ABP ecosystem
-- Khó migrate sang framework khác
-- Phải follow ABP conventions và patterns
+- Phụ thuộc nhiều vào hệ sinh thái ABP
+- Khó di chuyển sang framework khác
+- Phải tuân theo các quy ước và mẫu thiết kế của ABP
 
-5. Customization Challenges
+#### 5. Thách Thức Trong Tùy Chỉnh
 
-- Thay đổi core behavior có thể phức tạp
-- Breaking change khi update version
-- Conflict với custom implementations
+- Thay đổi hành vi cốt lõi có thể phức tạp
+- Breaking changes khi cập nhật phiên bản
+- Xung đột với các triển khai tùy chỉnh
 
-6. Database Size
+#### 6. Kích Thước Database
 
-- Initial database schema khá lớn
-- Nhiều tables mặc dù chưa sử dụng hết features
-- Complexity trong database relationships
+- Schema database ban đầu khá lớn
+- Nhiều bảng mặc dù chưa sử dụng hết tính năng
+- Độ phức tạp trong các mối quan hệ database
 
-7. Performance Overhead
+#### 7. Chi Phí Hiệu Năng
 
-- Nhiều abstraction layers có thể ảnh hưởng performance
-- Cần optimization cho high-traffic applications
-- Memory footprint lớn hơn minimal frameworks
+- Nhiều lớp trừu tượng có thể ảnh hưởng hiệu năng
+- Cần tối ưu hóa cho ứng dụng lưu lượng cao
+- Dung lượng bộ nhớ lớn hơn các framework tối giản
 
-8. Vendor Lock-in
+#### 8. Phụ Thuộc Nhà Cung Cấp
 
-- Phụ thuộc vào readmap của Volosoft
-- Discontinued features có thể ảnh hưởng tới dự án
-- Limited control over core updates
+- Phụ thuộc vào lộ trình phát triển của Volosoft
+- Các tính năng bị ngừng có thể ảnh hưởng đến dự án
+- Kiểm soát hạn chế đối với các cập nhật cốt lõi
 
-## When do you need to use APS.NET Core Zero
+## Khi Nào Nên Sử Dụng ASP.NET Core Zero
 
-### Cases where it should be used
+### Các Trường Hợp Nên Sử Dụng
 
-1. SaaS Application (Multi-tenant)
+#### 1. Ứng Dụng SaaS (Multi-tenant)
 
 - Khi bạn xây dựng ứng dụng SaaS với nhiều khách hàng
-- Cần quản lý tenants với data isolation
-- Yêu cầu subscription và edition management
+- Cần quản lý tenants với cô lập dữ liệu
+- Yêu cầu quản lý đăng ký và phiên bản
 
-2. Enterprise Application
+#### 2. Ứng Dụng Doanh Nghiệp
 
 - Dự án lớn, phức tạp với nhiều modules
-- Cần authentication và authorization phức tạp
-- Yêu cầu audit logging và compliance
-- Team lớn cần structure rõ ràng
+- Cần xác thực và phân quyền phức tạp
+- Yêu cầu ghi nhật ký kiểm toán và tuân thủ
+- Đội ngũ lớn cần cấu trúc rõ ràng
 
-3. Khi có Budget và Timeline chặt chẽ
+#### 3. Khi Có Ngân Sách và Thời Hạn Chặt Chẽ
 
-- Budget cho license nhưng cần giảm thời gian phát triển
-- Dealine gấp, cần production-ready solution nhanh
-- ROI (tỉ suất hoàn vốn đầu tư) cao hơn chi phí phát triển và license
+- Có ngân sách cho bản quyền nhưng cần giảm thời gian phát triển
+- Deadline gấp, cần giải pháp sẵn sàng production nhanh chóng
+- ROI (tỷ suất hoàn vốn đầu tư) cao hơn chi phí phát triển và bản quyền
 
-4. Dự án cần khả năng mở rộng (Scalability)
+#### 4. Dự Án Cần Khả Năng Mở Rộng
 
 - Dự kiến mở rộng lớn trong tương lai
-- Cần kiến trúc có hỗ trợ microservice
-- Performance (hiệu năng) và availability(tính sẵn sàng) là ưu tiên
+- Cần kiến trúc hỗ trợ microservices
+- Hiệu năng và tính sẵn sàng là ưu tiên
 
-5. Team thiếu senior developers
+#### 5. Đội Ngũ Thiếu Senior Developers
 
-- Team junior cần structure sẵn có 
-- Cần best practices được implement sẵn
+- Đội ngũ junior cần cấu trúc sẵn có
+- Cần best practices được triển khai sẵn
 - Giảm thời gian quyết định kiến trúc
 
-6. Ứng dụng có User Management phức tạp
+#### 6. Ứng Dụng Có Quản Lý Người Dùng Phức Tạp
 
-- Nhiều roles và permissions
+- Nhiều vai trò và quyền
 - Hệ thống phân cấp đơn vị tổ chức
 - Quy trình làm việc phức tạp của người dùng
 
-7. Khi cần mobile apps
+#### 7. Khi Cần Ứng Dụng Di Động
 
-- Yêu cầu cả web và mobile (IOS/Android)
-- API-first approach
-- Cross-platform development
+- Yêu cầu cả web và mobile (iOS/Android)
+- Tiếp cận API-first
+- Phát triển đa nền tảng
 
-### Cases where it shouldn't be used
+### Các Trường Hợp Không Nên Sử Dụng
 
-1. Dự án nhỏ, đơn giản
+#### 1. Dự Án Nhỏ, Đơn Giản
 
-- CRUD application đơn giản
+- Ứng dụng CRUD đơn giản
 - Prototype hoặc bản MVP
-- Personal project
+- Dự án cá nhân
 
-2. Ngân sách hạn chế
+#### 2. Ngân Sách Hạn Chế
 
 - Startups giai đoạn đầu
-- Không đủ budget cho license
+- Không đủ ngân sách cho bản quyền
 
-3. Team chưa có kinh nhiệm với .NET Core
+#### 3. Đội Ngũ Chưa Có Kinh Nghiệm Với .NET Core
 
-- Thời gian học lâu, cần training nhiều
+- Thời gian học lâu, cần đào tạo nhiều
+- Thiếu kiến thức nền tảng về .NET ecosystem
 
-4. Dự án ngắn hạn
+#### 4. Dự Án Ngắn Hạn
 
 - Proof of concept
-- Short-term project ( < 3 tháng )
-- One-time application
+- Dự án ngắn hạn (< 3 tháng)
+- Ứng dụng một lần
 
-5. Khi cần full control
+#### 5. Khi Cần Kiểm Soát Hoàn Toàn
 
-- Không muốn vendor Lock-in
-- Yêu cầu hiệu suất cụ thể
+- Không muốn phụ thuộc nhà cung cấp
+- Yêu cầu tối ưu hóa hiệu năng cụ thể
+- Cần tùy chỉnh sâu các thành phần cốt lõi
 
-6.Single-tenat application đơn giản
+#### 6. Ứng Dụng Single-Tenant Đơn Giản
 
 - Không cần Multi-tenancy
-- Basic authentication đủ
+- Xác thực cơ bản là đủ
 - Chức năng tối thiểu
 
-## 🚀 Getting Started With Sample Project
+## 🚀 Bắt Đầu Với Dự Án Mẫu
 
-### Step 1: Clone Repository
+### Bước 1: Clone Repository
+
 ```bash
 git clone <repository-url>
 cd aspnetzero_documentation/myproject
 ```
 
-### Step 2: Database Setup & Migration
+### Bước 2: Thiết Lập và Migration Database
+
 ```bash
-# Navigate to Migrator project
+# Di chuyển đến thư mục Migrator
 cd D:\.vs\aspnetzero_documentation\myproject\9.4.2\aspnet-core\src\myproject.Migrator
 
-# Restore NuGet packages
+# Khôi phục các gói NuGet
 dotnet restore
 
-# Run database migration
+# Chạy migration database
 dotnet run
 ```
 
-**What this does:**
-- 📊 Creates the database schema
-- 🌱 Seeds initial data (admin user, roles, permissions)
-- 🔧 Sets up multi-tenancy structure
+**Các thao tác được thực hiện:**
+- 📊 Tạo schema database
+- 🌱 Khởi tạo dữ liệu ban đầu (admin user, roles, permissions)
+- 🔧 Thiết lập cấu trúc multi-tenancy
 
-### Step 3: Run the Application
+### Bước 3: Tải thư viện 
 
-#### Option A: Using Visual Studio (Recommended)
-1. 📂 Open `myproject.sln` in Visual Studio
-2. 🎯 Set `myproject.Web.Mvc` as startup project
-3. ⚡ Press `F5` or click **Start Debugging**
+- Để bản demo này có giao diện đẹp thì bạn cần cài thư viện như bootstrap và JQuery, đặt chúng nằm tại đường dẫn ```*.Web.Mvc/wwwroot/libs/```
 
-### Step 4: Access the Application
+### Bước 3: Chạy Ứng Dụng
 
-🌐 **Application URLs:**
-- **Web Application**: https://localhost:44311
-- **API Documentation**: https://localhost:44311/swagger
-- **Health Check**: https://localhost:44311/health
+#### Tùy Chọn A: Sử Dụng Visual Studio (Khuyến Nghị)
 
-🔑 **Default Login Credentials:**
-- **Username**: `admin`
-- **Password**: `123qwe`
+1. 📂 Mở file `myproject.sln` trong Visual Studio
+2. 🎯 Đặt `myproject.Web.Mvc` làm startup project
+3. ⚡ Nhấn `F5` hoặc click **Start Debugging**
 
-## 📁 Project Structure
+### Bước 4: Truy Cập Ứng Dụng
+
+🌐 **Các URL Ứng Dụng:**
+- **Ứng dụng Web**: https://localhost:44311
+- **Tài liệu API**: https://localhost:44311/swagger
+
+🔑 **Thông Tin Đăng Nhập Mặc Định:**
+- **Tên đăng nhập**: `admin`
+- **Mật khẩu**: `123qwe`
+
+## 📁 Cấu Trúc Dự Án
 
 ```
 myproject/
 ├── 📂 src/
-│   ├── 🏛️ myproject.Core/              # Domain Layer
-│   │   ├── Entities/                   # Domain Entities
+│   ├── 🏛️ myproject.Core/              # Lớp Domain
+│   │   ├── Entities/                   # Các Entity Domain
 │   │   ├── Authorization/              # Permissions & Roles
-│   │   └── Localization/              # Language Resources
-│   ├── 🔧 myproject.Application/       # Application Layer
+│   │   └── Localization/              # Tài nguyên ngôn ngữ
+│   ├── 🔧 myproject.Application/       # Lớp Application
 │   │   ├── Services/                   # Application Services
 │   │   ├── DTOs/                      # Data Transfer Objects
 │   │   └── Authorization/             # Application Permissions
-│   ├── 🗄️ myproject.EntityFrameworkCore/ # Infrastructure Layer
+│   ├── 🗄️ myproject.EntityFrameworkCore/ # Lớp Infrastructure
 │   │   ├── EntityFrameworkCore/       # DbContext & Configurations
 │   │   ├── Migrations/                # Database Migrations
 │   │   └── Repositories/              # Repository Implementations
-│   ├── 🌐 myproject.Web.Core/         # Web Core Layer
+│   ├── 🌐 myproject.Web.Core/         # Lớp Web Core
 │   │   ├── Authentication/            # JWT & Auth Logic
 │   │   ├── Controllers/               # Base Controllers
 │   │   └── Startup/                   # Dependency Injection
-│   ├── 🎨 myproject.Web.Mvc/          # Presentation Layer (MVC)
+│   ├── 🎨 myproject.Web.Mvc/          # Lớp Presentation (MVC)
 │   │   ├── Controllers/               # MVC Controllers
 │   │   ├── Views/                     # Razor Views
 │   │   ├── wwwroot/                   # Static Files
 │   │   └── Areas/                     # Feature Areas
 │   ├── 🔄 myproject.Migrator/         # Database Migrator
-│   └── 🌍 myproject.Web.Host/         # API Host (for SPA)
+│   └── 🌍 myproject.Web.Host/         # API Host (cho SPA)
 ├── 📂 test/
 │   ├── myproject.Tests/               # Unit Tests
 │   └── myproject.Web.Tests/           # Integration Tests
-└── 📂 docker/                         # Docker Configurations
+└── 📂 docker/                         # Cấu hình Docker
 ```
 
-## ⚙️ Configuration
+## ⚙️ Cấu Hình
 
-### Database Configuration
-Update connection string in `appsettings.json`:
+### Cấu Hình Database
+
+Cập nhật connection string trong file `appsettings.json`:
 
 ```json
 {
@@ -344,7 +353,7 @@ Update connection string in `appsettings.json`:
 }
 ```
 
-or, if you use MSSQL on Docker 
+Hoặc, nếu bạn sử dụng MSSQL trên Docker:
 
 ```json
 {
@@ -354,12 +363,32 @@ or, if you use MSSQL on Docker
 }
 ```
 
-#### 🗄️ Database Connection Issues
-- ✅ Ensure SQL Server is running
-- ✅ Check connection string format
-- ✅ Verify database permissions
-- ✅ Try using SQL Server LocalDB
+### 🗄️ Xử Lý Sự Cố Kết Nối Database
 
-#### Warning 
+- ✅ Đảm bảo SQL Server đang chạy
+- ✅ Kiểm tra định dạng connection string
+- ✅ Xác minh quyền truy cập database
+- ✅ Thử sử dụng SQL Server LocalDB
 
-Currently, I am using MSSQL on Docker
+### ⚠️ Lưu Ý
+
+Hiện tại, tôi đang sử dụng MSSQL trên Docker
+
+## 📚 Tài Nguyên Bổ Sung
+
+### Tài Liệu Chính Thức
+- [ASP.NET Zero Documentation](https://docs.aspnetzero.com/)
+- [ABP Framework Documentation](https://docs.abp.io/)
+
+### Cộng Đồng
+- [ASP.NET Zero Forum](https://support.aspnetzero.com/)
+- [GitHub Repository](https://github.com/aspnetzero)
+
+### Hỗ Trợ
+- Email: info@aspnetzero.com
+- Support Portal: https://support.aspnetzero.com/
+
+---
+
+**Phiên bản tài liệu**: 1.0  
+**Cập nhật lần cuối**: 2024
