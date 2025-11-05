@@ -1,0 +1,118 @@
+@using myproject.Web.Startup
+@{
+    ViewBag.Title = L("Products");
+    ViewBag.CurrentPageName = "Products";
+}
+@section scripts
+{
+    <script src="~/view-resources/Views/Products/Index.js" asp-append-version="true"></script>
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>@L("Products")</h1>
+            </div>
+            <div class="col-sm-6">
+                @if (IsGranted(myproject.Authorization.PermissionNames.Pages_Products_Create))
+                {
+                    <button type="button" class="btn bg-blue float-sm-right" id="CreateNewProductButton">
+                        <i class="fa fa-plus-square"></i>
+                        @L("CreateNewProduct")
+                    </button>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" id="SearchKeyword" class="form-control" placeholder="@L("SearchWithThreeDot")" />
+                                    <div class="input-group-append">
+                                        <button class="btn btn-default" type="button" id="SearchButton">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-default float-right" type="button" id="RefreshButton">
+                                    <i class="fa fa-refresh"></i> @L("Refresh")
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="ProductsTable" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>@L("Name")</th>
+                                        <th>@L("Description")</th>
+                                        <th>@L("Price")</th>
+                                        <th>@L("Stock")</th>
+                                        <th>@L("IsActive")</th>
+                                        <th style="width: 150px">@L("Actions")</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Create/Edit Modal -->
+<div class="modal fade" id="ProductCreateOrEditModal" tabindex="-1" role="dialog" aria-labelledby="ProductCreateOrEditModalLabel" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="ProductCreateOrEditModalLabel">@L("CreateNewProduct")</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="ProductCreateOrEditForm">
+                    <input type="hidden" id="ProductId" name="id" />
+                    <div class="form-group">
+                        <label for="ProductName">@L("ProductName") *</label>
+                        <input type="text" class="form-control" id="ProductName" name="name" required maxlength="200" />
+                    </div>
+                    <div class="form-group">
+                        <label for="ProductDescription">@L("Description")</label>
+                        <textarea class="form-control" id="ProductDescription" name="description" rows="3" maxlength="1000"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="ProductPrice">@L("Price") *</label>
+                        <input type="number" class="form-control" id="ProductPrice" name="price" required step="0.01" min="0.01" />
+                    </div>
+                    <div class="form-group">
+                        <label for="ProductStock">@L("Stock") *</label>
+                        <input type="number" class="form-control" id="ProductStock" name="stock" required min="0" />
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="ProductIsActive" name="isActive" checked />
+                            <label class="custom-control-label" for="ProductIsActive">@L("IsActive")</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">@L("Cancel")</button>
+                <button type="button" class="btn btn-primary" id="SaveProductButton">@L("Save")</button>
+            </div>
+        </div>
+    </div>
+</div>

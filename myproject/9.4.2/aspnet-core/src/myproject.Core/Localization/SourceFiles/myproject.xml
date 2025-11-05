@@ -120,5 +120,13 @@
     <text name="403PageHeader">Forbidden</text>
     <text name="403PageDescription">You don't have permission to access this resource. Please contact your administrator.</text>
     <text name="403PageButton">Go back to Dashboard</text>
+    <text name="Products">Products</text>
+    <text name="CreateNewProduct">Create new product</text>
+    <text name="EditProduct">Edit product</text>
+    <text name="DeleteProduct">Delete product</text>
+    <text name="ProductName">Product name</text>
+    <text name="Description">Description</text>
+    <text name="Price">Price</text>
+    <text name="Stock">Stock</text>
   </texts>
 </localizationDictionary>
