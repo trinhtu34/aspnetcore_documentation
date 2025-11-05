@@ -137,11 +137,10 @@ ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản th�
 - Nhiều tính năng không cần thiết cho dự án nhỏ
 - Chi phí hiệu năng do các lớp trừu tượng
 
-#### 3. Đường Cong Học Tập Dốc
+#### 3. Phải học nhiều công nghệ
 
 - Cần thời gian để hiểu kiến trúc phức tạp
 - Nhiều khái niệm: DDD, Multi-tenancy, ABP Framework
-- Đòi hỏi kiến thức về nhiều công nghệ
 
 #### 4. Gắn Chặt Với ABP Framework
 
@@ -190,7 +189,7 @@ ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản th�
 - Yêu cầu ghi nhật ký kiểm toán và tuân thủ
 - Đội ngũ lớn cần cấu trúc rõ ràng
 
-#### 3. Khi Có Ngân Sách và Thời Hạn Chặt Chẽ
+#### 3. Khi Có Ngân Sách Lớn Nhưng Thời Gian Phát Triển Ngắn
 
 - Có ngân sách cho bản quyền nhưng cần giảm thời gian phát triển
 - Deadline gấp, cần giải pháp sẵn sàng production nhanh chóng
@@ -390,6 +389,6 @@ Hiện tại, tôi đang sử dụng MSSQL trên Docker
 
 ---
 
-**Phiên bản tài liệu**: 1.0 
+**Phiên bản tài liệu**: 1.2
 
-**Cập nhật lần cuối**: 2024
+**Cập nhật lần cuối**: 2025
