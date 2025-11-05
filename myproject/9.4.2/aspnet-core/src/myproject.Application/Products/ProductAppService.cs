@@ -7,6 +7,7 @@ using myproject.Products.Dto;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+using Abp.Application.Services.Dto;
 
 namespace myproject.Products
 {
@@ -31,7 +32,7 @@ namespace myproject.Products
         }
 
         [AbpAuthorize(PermissionNames.Pages_Products_Delete)]
-        public override Task DeleteAsync(Abp.Application.Services.Dto.EntityDto<int> input)
+        public override Task DeleteAsync(EntityDto<int> input)
         {
             return base.DeleteAsync(input);
         }
