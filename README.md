@@ -2,7 +2,9 @@
 
 ## ASP.NET Core Zero là gì?
 
-ASP.NET Core Zero là một framework khởi điểm được xây dựng dựa trên nền tảng ASP.NET Core và ABP Framework (ASP.NET Boilerplate). Nó cung cấp một kiến trúc ứng dụng hoàn chỉnh với các tính năng cơ bản đã được tích hợp sẵn, giúp các nhà phát triển có thể bắt đầu dự án nhanh chóng mà không cần phải xây dựng lại các tính năng cơ bản từ đầu.
+ASP.NET Core Zero là một framework khởi điểm được xây dựng dựa trên nền tảng ASP.NET Core và ABP Framework (ASP.NET Boilerplate). Nó được sử dụng để cung cấp một kiến trúc ứng dụng hoàn chỉnh với các tính năng cơ bản đã được tích hợp sẵn, giúp các nhà phát triển có thể bắt đầu dự án nhanh chóng mà không cần phải xây dựng lại các tính năng cơ bản từ đầu.
+
+Một số use cases chính của ASP.NET Core Zero như để tạo ra các Project Management Tool như Jira, Asana. Hệ thống CRM. E-learning platform. Inventory Management System. Enterprise Internal Application. Healthcare Application. 
 
 ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản thương mại của ABP Framework, cung cấp các module và tính năng nâng cao hơn so với phiên bản miễn phí. Nó tuân theo các nguyên tắc thiết kế như Domain-Driven Design (DDD), Multi-tenancy, và các best practices trong phát triển phần mềm hiện đại.
 
@@ -38,9 +40,9 @@ ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản th�
 
 - Tích hợp Hangfire để xử lý các tác vụ nền
 - Hỗ trợ Quartz.NET cho các công việc theo lịch trình
-- Thực thi công việc đáng tin cậy với cơ chế thử lại
+- Thực thi công việc đáng tin cậy với cơ chế retry
 
-### 6. Ghi Nhật Ký Kiểm Toán
+### 6. Ghi Nhật Ký Audit
 
 - Tự động ghi log các thao tác quan trọng
 - Theo dõi lịch sử thay đổi dữ liệu
@@ -64,7 +66,7 @@ ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản th�
 - Hệ thống thông báo tích hợp sẵn
 - Cập nhật dashboard theo thời gian thực
 
-### 10. Hỗ Trợ Di Động
+### 10. Hỗ Trợ Thiết Bị Di Động
 
 - Template Xamarin cho iOS và Android
 - Template React Native
@@ -117,7 +119,7 @@ ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản th�
 - Entity Framework Core với hỗ trợ migration
 - Tích hợp Dapper cho các truy vấn hiệu năng cao
 
-#### 6. Sẵn Sàng Cho Production
+#### 6. Sẵn Sàng Cho Việc Triển Khai Lên Production
 
 - Đã được kiểm thử kỹ lưỡng
 - Cơ sở hạ tầng logging và monitoring
@@ -160,12 +162,6 @@ ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản th�
 - Nhiều bảng mặc dù chưa sử dụng hết tính năng
 - Độ phức tạp trong các mối quan hệ database
 
-#### 7. Chi Phí Hiệu Năng
-
-- Nhiều lớp trừu tượng có thể ảnh hưởng hiệu năng
-- Cần tối ưu hóa cho ứng dụng lưu lượng cao
-- Dung lượng bộ nhớ lớn hơn các framework tối giản
-
 #### 8. Phụ Thuộc Nhà Cung Cấp
 
 - Phụ thuộc vào lộ trình phát triển của Volosoft
@@ -178,7 +174,7 @@ ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản th�
 
 #### 1. Ứng Dụng SaaS (Multi-tenant)
 
-- Khi bạn xây dựng ứng dụng SaaS với nhiều khách hàng
+- Khi bạn xây dựng ứng dụng SaaS ( Software as a Services ) với nhiều khách hàng
 - Cần quản lý tenants với cô lập dữ liệu
 - Yêu cầu quản lý đăng ký và phiên bản
 
@@ -213,7 +209,7 @@ ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản th�
 - Hệ thống phân cấp đơn vị tổ chức
 - Quy trình làm việc phức tạp của người dùng
 
-#### 7. Khi Cần Ứng Dụng Di Động
+#### 7. Khi Cần Ứng Dụng Trên Thiết Bị Di Động
 
 - Yêu cầu cả web và mobile (iOS/Android)
 - Tiếp cận API-first
@@ -241,7 +237,7 @@ ASP.NET Core Zero được phát triển bởi Volosoft và là phiên bản th�
 
 - Proof of concept
 - Dự án ngắn hạn (< 3 tháng)
-- Ứng dụng một lần
+- Ứng dụng dùng một lần, không tái sử dụng cho sau này
 
 #### 5. Khi Cần Kiểm Soát Hoàn Toàn
 
@@ -282,7 +278,7 @@ dotnet run
 - 🌱 Khởi tạo dữ liệu ban đầu (admin user, roles, permissions)
 - 🔧 Thiết lập cấu trúc multi-tenancy
 
-### Bước 3: Tải thư viện 
+### Bước 3: Tải thư viện
 
 - Để bản demo này có giao diện đẹp thì bạn cần cài thư viện như bootstrap và JQuery, đặt chúng nằm tại đường dẫn ```*.Web.Mvc/wwwroot/libs/```
 
