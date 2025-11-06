@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using myproject.EntityFrameworkCore;
 
@@ -11,9 +12,11 @@ using myproject.EntityFrameworkCore;
 namespace myproject.Migrations
 {
     [DbContext(typeof(myprojectDbContext))]
-    partial class myprojectDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251106035638_Add_TenantId_To_Products")]
+    partial class Add_TenantId_To_Products
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

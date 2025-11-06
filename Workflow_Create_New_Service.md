@@ -15,7 +15,7 @@ Domain Entity -> Database Migration -> Permission -> DTOs -> App Service ( busin
 namespace myproject.Products
 {
     [Table("Products")]
-    public class Product : FullAuditedEntity<int>
+    public class Product : FullAuditedEntity<int>, IMustHaveTenant
     {
         public const int MaxNameLength = 200;
         public const int MaxDescriptionLength = 1000;
@@ -34,8 +34,11 @@ namespace myproject.Products
         public int Stock { get; set; }
 
         public bool IsActive { get; set; }
+
+        public int TenantId { get; set; }
     }
 }
+
 ```
 
 ### 2. Database Migration

@@ -1,3 +1,4 @@
+using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -5,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace myproject.Products
 {
     [Table("Products")]
-    public class Product : FullAuditedEntity<int>
+    public class Product : FullAuditedEntity<int>, IMustHaveTenant
     {
         public const int MaxNameLength = 200;
         public const int MaxDescriptionLength = 1000;
@@ -24,5 +25,7 @@ namespace myproject.Products
         public int Stock { get; set; }
 
         public bool IsActive { get; set; }
+
+        public int TenantId { get; set; }
     }
 }
