@@ -13,5 +13,6 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\myproject.Core\myproject.Core.csproj" />
+    <!--<ProjectReference Include="..\myproject.Web.Core\myproject.Web.Core.csproj"></ProjectReference>-->
   </ItemGroup>
 </Project>

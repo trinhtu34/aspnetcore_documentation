@@ -186,4 +186,9 @@
             _dataTable.ajax.reload();
         }
     });
+
+    // Expose reload function for SignalR
+    window.reloadProductTable = function() {
+        _dataTable.ajax.reload(null, false); // false = stay on current page
+    };
 })(jQuery);
