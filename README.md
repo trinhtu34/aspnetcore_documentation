@@ -31,25 +31,39 @@ dotnet ef database update
     - GetSectorCategoryForEditOutput - Output khi lấy dữ liệu để edit
     - SectorCategoryDto -  Dùng để hiển thị dữ liệu
 - Tiếp theo, tạo ISectorCategoryAppService nằm tại : D:\Company_Folder\Company_Project\customize\Dms\DPS.Dms.Application.Shared\Interface\Category\ và SectorCategoryAppService.cs nằm tại : D:\Company_Folder\Company_Project\customize\Dms\DPS.Dms.Application\Services\Category\SectorCategoryAppService.cs 
-- Tiếp theo, cấu hình AutoMapper trong file CustomAutoMapper.cs
 - Tiếp theo, tạo SectorCategoryController.cs và SectorCategoryViewModel.cs và CreateOrEditSectorCategoryModalViewModel.cs trong Areas/Dms bởi vì đây không phải là một chức năng quản trị ( Nếu đây là 1 chức năng quản trị thì đưa vào Areas/App )
+- Thêm Permission tại hàm SetPermissionCategories của file AppAuthorizationProvider.cs
+- Tiếp theo, cần tạo Controller Models View Js tất cả đều nằm tại .Web.Mvc -> Areas -> Dms
+  - Controller : Areas/Dms/Controller/CategorySectorCategoryController.cs
+  - Models : Areas/Dms/Models/CreateOrEditSectorCategoryModalViewModel.cs và Areas/Dms/Models/SectorCategoryViewModel 
+  - View : Areas/Dms/Views/SectorCategory/Index.cshtml và Areas/Dms/Views/SectorCategory/_CreateOrEditModal.cshtml và Areas/Dms/Views/SectorCategory/_ViewDetailModal.cshtml
+  - JS : wwwroot/view-resources/Areas/Dms/Category/SectorCategory/Index.js và wwwroot/view-resources/Areas/Dms/Category/SectorCategory/_CreateOrEditModal.js 
 
-## Các file cần thao tác tiếp
-
-
-## Các file đã sửa ( thêm code mới vào file )
+## Các file đã thao tác ( thêm - sửa code mới vào file )
 - AppPageNames.cs
 - AppNavigationProvider.cs
 - AbpZero.xml
 - AbpZero-vi.xml
 - AppPermissions.cs
 - ZeroDbContext.cs
-
-## Các file đã thêm mới
-- D:\Company_Folder\Company_Project\customize\Dms\DPS.Dms.Core\Category\SectorCategory.cs  - Mục đích : tạo Model gốc
-- D:\Company_Folder\Company_Project\customize\Dms\DPS.Dms.Application.Shared\Dto\Category\SectorCategory\  - Mục đích : tạo các DTO cho SectorCategory 
-- D:\Company_Folder\Company_Project\customize\Dms\DPS.Dms.Application.Shared\Interface\Category\ISectorCategoryAppService.cs 
-- D:\Company_Folder\Company_Project\customize\Dms\DPS.Dms.Application\Services\Category\SectorCategoryAppService.cs
+- D:\Company_Folder\Company_Project\customize\Dms\DPS.Dms.Application\CustomDtoMapper.cs
+- ISectorCategoryAppService.cs
+- SectorCategoryAppService.cs
+- CreateOrEditSectorCategoryDto.cs
+- GetSectorCategoryForEditOutput.cs
+- SectorCategoryDto.cs
+- GetSectorCategoryForViewDto.cs
+- GetAllSectorCategoriesInput.cs
+- ISectorCategoryAppService.cs
+- SectorCategoryAppService.cs
+- D:\Company_Folder\Company_Project\src\Zero.Web.Mvc\wwwroot\view-resources\Areas\Dms\Category\SectorCategory\Index.js
+- D:\Company_Folder\Company_Project\src\Zero.Web.Mvc\wwwroot\view-resources\Areas\Dms\Category\SectorCategory\_CreateOrEditModal.js
+- SectorCategoryController.cs
+- CreateOrEditSectorCategoryModalViewModel.cs
+- SectorCategoryViewModel.cs
+- D:\Company_Folder\Company_Project\src\Zero.Web.Mvc\Areas\Dms\Views\SectorCategory\Index.cshtml
+- D:\Company_Folder\Company_Project\src\Zero.Web.Mvc\Areas\Dms\Views\SectorCategory\_CreateOrEditModal.cshtml
+- D:\Company_Folder\Company_Project\src\Zero.Web.Mvc\Areas\Dms\Views\SectorCategory\_ViewDetailModal.cshtml
 
 ## Workflow khi làm 1 tính năng mới 
 - Tạo entity -> Migrate database -> DTO -> CustomDtoMapper.cs -> Interface and AppService ( business logic ) -> UI ( Controller and View )
