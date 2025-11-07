@@ -1,69 +1,184 @@
-# ASP.NET ZERO - ASP.NET Core Version
-* Start from here: https://www.aspnetzero.com/Documents/Development-Guide-Core
-* This project will be used as startup source for other projects.
-* 3rds used on this project:
-- Telerik Reporting 2021 R1 SP2 - 15.0.21.326
-- Telerik Kendo UI 2021 R1 SP2 - 2021.1.330
-- Telerik UI for ASP.NET CORE 2021 R1 SP2 - 2021.1.330
+# ASP.NET ZERO - DPS.DMS Project
 
-## Kiến trúc của dự án - theo Clean Architecture
-- Tầng Domain : DPS.Dms.Core
-- Tầng Application : DPS.Dms.Application , DPS.Dms.Application.Shared (DTO)
-- Tầng Infrastructure : Zero.EntityFrameworkCore
-- Tầng Presentation : Zero.Web.Mvc
+## Tài liệu & Tham khảo
+- [ASP.NET Zero Development Guide](https://www.aspnetzero.com/Documents/Development-Guide-Core)
+- Project này được sử dụng làm template cho các dự án khác
 
+## Thư viện bên thứ 3
+- Telerik Reporting 2021 R1 SP2 (v15.0.21.326)
+- Telerik Kendo UI 2021 R1 SP2 (v2021.1.330)
+- Telerik UI for ASP.NET Core 2021 R1 SP2 (v2021.1.330)
 
-## Các bước để thêm 1 chức năng vào phần " Danh mục " 
+## Kiến trúc dự án (Clean Architecture)
 
-- Vào trang AppPageNames.cs thêm vào phần class dms
-- Tiếp theo, vào trang AppNavigationProvider.cs và thêm code vào hàm MenuCategories
-- Tiếp theo, vào AbpZero-vi.xml thêm tiếp 1 dòng với mục đích để hiển thị mục để ấn "Danh sách ngành, lĩnh vực"
-- Tiếp theo, tạo model là "SectorCategory"
-- Tiếp theo, sửa file ZeroDbContext.cs để chuẩn bị cho bước migration của databse 
-- Tiếp theo, dùng PMC ( package management console ) -> cd vào EntityFrameworkCore và chạy lệnh migrate database : 
+| Tầng | Project | Mô tả |
+|------|---------|-------|
+| **Domain** | `DPS.Dms.Core` | Entities, Domain Logic |
+| **Application** | `DPS.Dms.Application` | Business Logic, Services |
+| | `DPS.Dms.Application.Shared` | DTOs, Interfaces |
+| **Infrastructure** | `Zero.EntityFrameworkCore` | Database, EF Core |
+| **Presentation** | `Zero.Web.Mvc` | Controllers, Views, UI |
+
+## Workflow tạo tính năng mới
+
 ```
-cd Zero.Core.EntityFrameworkCore
-dotnet ef migrations add Added_SectorCategory
+1. Entity → 2. Migration → 3. DTO → 4. Mapper → 5. Interface & Service → 6. UI
+```
+
+## Hướng dẫn chi tiết: Thêm chức năng "Danh mục"
+
+### Bước 1: Cấu hình Navigation & Permission
+
+#### 1.1 Thêm Page Name
+**File**: `AppPageNames.cs`
+- Thêm constant vào class `dms`
+
+#### 1.2 Thêm Menu Navigation
+**File**: `AppNavigationProvider.cs`
+- Thêm menu item vào hàm `MenuCategories()`
+
+#### 1.3 Thêm Localization
+**File**: `AbpZero-vi.xml` và `AbpZero.xml`
+- Thêm text hiển thị cho menu
+
+#### 1.4 Thêm Permission
+**File**: `AppPermissions.cs`
+- Thêm permission constants
+
+**File**: `AppAuthorizationProvider.cs`
+- Cấu hình permission trong hàm `SetPermissionCategories()`
+
+### Bước 2: Tạo Entity & Migration
+
+#### 2.1 Tạo Entity
+**Thư mục**: `customize/Dms/DPS.Dms.Core/Category/`
+- Tạo file `[EntityName].cs` (ví dụ: `SectorCategory.cs`)
+
+#### 2.2 Cập nhật DbContext
+**File**: `ZeroDbContext.cs`
+- Thêm `DbSet<EntityName>` vào DbContext
+
+#### 2.3 Migration Database
+```bash
+cd Zero.EntityFrameworkCore
+dotnet ef migrations add Added_[EntityName]
 dotnet ef database update
 ```
-- Tiếp theo, tạo DTO cho CRUD tại mục : D:\Company_Folder\Company_Project\customize\Dms\DPS.Dms.Application.Shared\Dto\Category\SectorCategory lần lượt là : 
-    - CreateOrEditSectorCategoryDto - Dùng cho form tạo/sửa
-    - GetSectorCategoryForEditOutput - Output khi lấy dữ liệu để edit
-    - SectorCategoryDto -  Dùng để hiển thị dữ liệu
-- Tiếp theo, tạo ISectorCategoryAppService nằm tại : D:\Company_Folder\Company_Project\customize\Dms\DPS.Dms.Application.Shared\Interface\Category\ và SectorCategoryAppService.cs nằm tại : D:\Company_Folder\Company_Project\customize\Dms\DPS.Dms.Application\Services\Category\SectorCategoryAppService.cs 
-- Tiếp theo, tạo SectorCategoryController.cs và SectorCategoryViewModel.cs và CreateOrEditSectorCategoryModalViewModel.cs trong Areas/Dms bởi vì đây không phải là một chức năng quản trị ( Nếu đây là 1 chức năng quản trị thì đưa vào Areas/App )
-- Thêm Permission tại hàm SetPermissionCategories của file AppAuthorizationProvider.cs
-- Tiếp theo, cần tạo Controller Models View Js tất cả đều nằm tại .Web.Mvc -> Areas -> Dms
-  - Controller : Areas/Dms/Controller/CategorySectorCategoryController.cs
-  - Models : Areas/Dms/Models/CreateOrEditSectorCategoryModalViewModel.cs và Areas/Dms/Models/SectorCategoryViewModel 
-  - View : Areas/Dms/Views/SectorCategory/Index.cshtml và Areas/Dms/Views/SectorCategory/_CreateOrEditModal.cshtml và Areas/Dms/Views/SectorCategory/_ViewDetailModal.cshtml
-  - JS : wwwroot/view-resources/Areas/Dms/Category/SectorCategory/Index.js và wwwroot/view-resources/Areas/Dms/Category/SectorCategory/_CreateOrEditModal.js 
 
-## Các file đã thao tác ( thêm - sửa code mới vào file )
+### Bước 3: Tạo DTOs
+
+**Thư mục**: `customize/Dms/DPS.Dms.Application.Shared/Dto/Category/[EntityName]/`
+
+Tạo các DTO sau:
+
+| File | Mục đích |
+|------|----------|
+| `CreateOrEdit[EntityName]Dto.cs` | Form tạo/sửa |
+| `Get[EntityName]ForEditOutput.cs` | Output khi lấy dữ liệu edit |
+| `[EntityName]Dto.cs` | Hiển thị dữ liệu |
+| `Get[EntityName]ForViewDto.cs` | Hiển thị chi tiết |
+| `GetAll[EntityName]Input.cs` | Input cho danh sách |
+
+### Bước 4: Cấu hình AutoMapper
+
+**File**: `CustomAutoMapper.cs` hoặc `CustomDtoMapper.cs`
+- Thêm mapping giữa Entity và DTO
+
+### Bước 5: Tạo Application Service
+
+#### 5.1 Interface
+**Thư mục**: `customize/Dms/DPS.Dms.Application.Shared/Interface/Category/`
+- Tạo `I[EntityName]AppService.cs`
+
+#### 5.2 Implementation
+**Thư mục**: `customize/Dms/DPS.Dms.Application/Services/Category/`
+- Tạo `[EntityName]AppService.cs`
+- Implement business logic (CRUD operations)
+
+### Bước 6: Tạo UI Layer
+
+> **Lưu ý**: 
+> - Chức năng DMS → `Areas/Dms`
+> - Chức năng quản trị → `Areas/App`
+
+#### 6.1 Controller
+**Thư mục**: `Areas/Dms/Controllers/`
+- Tạo `[EntityName]Controller.cs`
+
+#### 6.2 ViewModels
+**Thư mục**: `Areas/Dms/Models/`
+- `[EntityName]ViewModel.cs`
+- `CreateOrEdit[EntityName]ModalViewModel.cs`
+
+#### 6.3 Views
+**Thư mục**: `Areas/Dms/Views/[EntityName]/`
+- `Index.cshtml` - Trang danh sách
+- `_CreateOrEditModal.cshtml` - Modal tạo/sửa
+- `_ViewDetailModal.cshtml` - Modal xem chi tiết
+
+#### 6.4 JavaScript
+**Thư mục**: `wwwroot/view-resources/Areas/Dms/Category/[EntityName]/`
+- `Index.js` - Logic trang danh sách
+- `_CreateOrEditModal.js` - Logic modal tạo/sửa
+
+## Checklist Implementation
+
+### Core Configuration
+- [ ] AppPageNames.cs
+- [ ] AppNavigationProvider.cs
+- [ ] AppPermissions.cs
+- [ ] AppAuthorizationProvider.cs
+- [ ] AbpZero.xml / AbpZero-vi.xml
+- [ ] ZeroDbContext.cs
+
+### Domain Layer
+- [ ] Entity: `DPS.Dms.Core/Category/[EntityName].cs`
+- [ ] Migration: `dotnet ef migrations add`
+- [ ] Update Database: `dotnet ef database update`
+
+### Application Layer
+- [ ] DTOs (5 files)
+- [ ] Interface: `I[EntityName]AppService.cs`
+- [ ] Service: `[EntityName]AppService.cs`
+- [ ] Mapper: `CustomAutoMapper.cs`
+
+### Presentation Layer
+- [ ] Controller: `[EntityName]Controller.cs`
+- [ ] ViewModels (2 files)
+- [ ] Views (3 files)
+- [ ] JavaScript (2 files)
+
+## Ví dụ: SectorCategory
+
+### Files đã sửa
 - AppPageNames.cs
 - AppNavigationProvider.cs
-- AbpZero.xml
-- AbpZero-vi.xml
+- AbpZero.xml, AbpZero-vi.xml
 - AppPermissions.cs
 - ZeroDbContext.cs
-- D:\Company_Folder\Company_Project\customize\Dms\DPS.Dms.Application\CustomDtoMapper.cs
-- ISectorCategoryAppService.cs
-- SectorCategoryAppService.cs
-- CreateOrEditSectorCategoryDto.cs
-- GetSectorCategoryForEditOutput.cs
-- SectorCategoryDto.cs
-- GetSectorCategoryForViewDto.cs
-- GetAllSectorCategoriesInput.cs
-- ISectorCategoryAppService.cs
-- SectorCategoryAppService.cs
-- D:\Company_Folder\Company_Project\src\Zero.Web.Mvc\wwwroot\view-resources\Areas\Dms\Category\SectorCategory\Index.js
-- D:\Company_Folder\Company_Project\src\Zero.Web.Mvc\wwwroot\view-resources\Areas\Dms\Category\SectorCategory\_CreateOrEditModal.js
-- SectorCategoryController.cs
-- CreateOrEditSectorCategoryModalViewModel.cs
-- SectorCategoryViewModel.cs
-- D:\Company_Folder\Company_Project\src\Zero.Web.Mvc\Areas\Dms\Views\SectorCategory\Index.cshtml
-- D:\Company_Folder\Company_Project\src\Zero.Web.Mvc\Areas\Dms\Views\SectorCategory\_CreateOrEditModal.cshtml
-- D:\Company_Folder\Company_Project\src\Zero.Web.Mvc\Areas\Dms\Views\SectorCategory\_ViewDetailModal.cshtml
 
-## Workflow khi làm 1 tính năng mới 
-- Tạo entity -> Migrate database -> DTO -> CustomDtoMapper.cs -> Interface and AppService ( business logic ) -> UI ( Controller and View )
+### Files đã tạo mới
+
+**Domain**
+- `customize/Dms/DPS.Dms.Core/Category/SectorCategory.cs`
+
+**Application**
+- `customize/Dms/DPS.Dms.Application.Shared/Dto/Category/SectorCategory/`
+  - CreateOrEditSectorCategoryDto.cs
+  - GetSectorCategoryForEditOutput.cs
+  - SectorCategoryDto.cs
+  - GetSectorCategoryForViewDto.cs
+  - GetAllSectorCategoriesInput.cs
+- `customize/Dms/DPS.Dms.Application.Shared/Interface/Category/ISectorCategoryAppService.cs`
+- `customize/Dms/DPS.Dms.Application/Services/Category/SectorCategoryAppService.cs`
+
+**Presentation**
+- Controllers, ViewModels, Views, JavaScript (theo cấu trúc ở Bước 6)
+
+## Tips & Best Practices
+
+- Luôn chạy migration sau khi tạo/sửa entity
+- Đặt tên file và class theo convention của project
+- Test từng bước trước khi chuyển sang bước tiếp theo
+- Sử dụng permission để kiểm soát quyền truy cập
+- Localization cho cả tiếng Việt và tiếng Anh
