@@ -25,7 +25,7 @@
 | | `AppNavigationProvider.cs`n  | Xây dựng menu điều hướng |
 
 ## Trước khi chạy dự án thì chạy các lệnh sau 
-
+- đứng tại root folder có chứa file *.sln
 ```bash
 npm install
 cd scr/Zero.EntityFrameworkCore
