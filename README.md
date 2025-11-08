@@ -18,6 +18,26 @@
 | | `DPS.Dms.Application.Shared` | DTOs, Interfaces |
 | **Infrastructure** | `Zero.EntityFrameworkCore` | Database, EF Core |
 | **Presentation** | `Zero.Web.Mvc` | Controllers, Views, UI |
+| | `Zero.Web.Mvc.Areas.App` | Administrator feature |
+| | `Zero.Web.Mvc.Areas.Dms` | Common feature |
+| | `Zero.Web.Mvc.wwwroot.view-resources` | JS code |
+| | `AppPageNames.cs` | Định nghĩ tên trang |
+| | `AppNavigationProvider.cs`n  | Xây dựng menu điều hướng |
+
+## Trước khi chạy dự án thì chạy các lệnh sau 
+
+```bash
+npm install
+cd scr/Zero.EntityFrameworkCore
+dotnet ef migrations add Added_All
+dotnet ef database update
+cd ..
+cd Zero.Web.Mvc
+npm yarn install
+npm install gulp-cli -g
+gulp buildDev
+dotnet run
+```
 
 ## Workflow tạo tính năng mới
 
