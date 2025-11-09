@@ -33,7 +33,7 @@ dotnet ef migrations add Added_All
 dotnet ef database update
 cd ..
 cd Zero.Web.Mvc
-npm yarn install
+yarn install
 npm install gulp-cli -g
 gulp buildDev
 dotnet run
