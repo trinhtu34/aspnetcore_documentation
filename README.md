@@ -29,7 +29,7 @@
 ```bash
 npm install
 cd scr/Zero.EntityFrameworkCore
-dotnet ef migrations add Added_All
+dotnet ef migrations add Add_AIChatTables
 dotnet ef database update
 cd ..
 cd Zero.Web.Mvc
